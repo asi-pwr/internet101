@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Michał Zając">
+  <title>Internet 101</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <link rel="stylesheet" href="custom.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Internet 101</h1>
+  <p class="author">Michał Zając</p>
+</section>
+
+<section><section id="history" class="title-slide slide level1"><h1>History</h1></section><section id="creation" class="slide level2">
+<h2>Creation</h2>
+<p>tl;dr The internet is a side effect of ARPANET project</p>
+<aside class="notes">
+<p>Advanced Research Projects Agency NETwork tried to build a network that could survive a nuclear attack</p>
+</aside>
+</section><section id="the-great-divide" class="slide level2">
+<h2>The great divide</h2>
+<p>Military got fed up with people browsing their stuff.</p>
+</section></section>
+<section><section id="physical-media" class="title-slide slide level1"><h1>Physical media</h1></section><section id="bandwidth" class="slide level2">
+<h2>Bandwidth</h2>
+<p>How many bits per second can the media handle?</p>
+</section><section id="latency" class="slide level2">
+<h2>Latency</h2>
+<p>How long does it take for one bit to reach the other end?</p>
+</section><section id="electricity" class="slide level2">
+<h2>Electricity</h2>
+<p>8P8C connector over Cat 3 - Cat 8 cable</p>
+<aside class="notes">
+<p>Most popular is Category 7 which allows up to 10 Gbit over 100m of cable</p>
+</aside>
+</section><section id="light" class="slide level2">
+<h2>Light</h2>
+<p>Optic fibres</p>
+<aside class="notes">
+<p>Depending on the bounce angle we can actually send multiple bits simulatneously</p>
+</aside>
+</section><section id="radio-waves" class="slide level2">
+<h2>Radio waves</h2>
+<p>WiFi obviously</p>
+</section></section>
+<section><section id="ip" class="title-slide slide level1"><h1>IP</h1></section><section id="v4" class="slide level2">
+<h2>v4</h2>
+<p>An IPv4 address is made of 4 octets. It’s kind like an address</p>
+</section><section id="ipv4-address-example" class="slide level2">
+<h2>IPv4 address example</h2>
+<pre><code>8.8.8.8
+
+00001000 00001000 00001000 00001000</code></pre>
+</section><section id="ipv4-packet-example" class="slide level2">
+<h2>IPv4 packet example</h2>
+<p><img data-src="images/ipv4packet.png" alt="IPv4 packet segment" class="stretch" /> </p>
+<p>Source: Wikipedia</p>
+</section><section id="v6" class="slide level2">
+<h2>v6</h2>
+<p>An IPv6 address is made of 8 16bit blocks</p>
+</section><section id="ipv6-example" class="slide level2">
+<h2>IPv6 example</h2>
+<pre><code>2001:0DB8:0000:0000:0000:0000:1428:57AB
+2001:db8::1428:57ab</code></pre>
+</section></section>
+<section><section id="tcp-udp" class="title-slide slide level1"><h1>TCP &amp; UDP</h1></section><section id="tcp" class="slide level2">
+<h2>TCP</h2>
+<p>A client-server protocol</p>
+<aside class="notes">
+<p>Server awaits connection at a certain point. Once a client initiates the connection the transmission starts. In contrast to UDP, TCP makes sure that ALL packets will arrive in order and with no duplicates. For every packet sent the target device sends an acknowledgement. In case of missing packets a retransmission request can be issued</p>
+</aside>
+</section><section id="tcp-packet-structure" class="slide level2">
+<h2>TCP packet structure</h2>
+<p><img data-src="images/tcppacket.png" alt="TCP packet structure" class="stretch" /> </p>
+<p>Source: Wikipedia</p>
+</section><section id="udp" class="slide level2">
+<h2>UDP</h2>
+<p>A connectionless protocol</p>
+<aside class="notes">
+<p>Just send the packet along with a checksum. Gives no guarantees the packets will reach the target</p>
+</aside>
+</section><section id="udp-packet-structure" class="slide level2">
+<h2>UDP packet structure</h2>
+<p><img data-src="images/udppacket.png" alt="UDP packet structure" class="stretch" /> </p>
+<p>Source: Wikipedia</p>
+</section></section>
+<section><section id="dns" class="title-slide slide level1"><h1>DNS</h1></section><section id="problem" class="slide level2">
+<h2>Problem</h2>
+<p>Who the hell remembers IP addresses?</p>
+</section><section id="solution" class="slide level2">
+<h2>Solution</h2>
+<p>applover.pl instead 195.201.74.26</p>
+</section><section id="problem-1" class="slide level2">
+<h2>Problem</h2>
+<p>How to translate from applover.pl to 195.201.74.26?</p>
+</section><section id="solution-1" class="slide level2">
+<h2>Solution</h2>
+<p>DNS</p>
+</section><section id="working-example" class="slide level2">
+<h2>Working example</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Source</th>
+<th style="text-align: left;">Destination</th>
+<th style="text-align: left;">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Browser</td>
+<td style="text-align: left;">ISP DNS</td>
+<td style="text-align: left;">Hey, got IP address of pl.wikipedia.org?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISP DNS</td>
+<td style="text-align: left;">Root DNS</td>
+<td style="text-align: left;">Oy mate, got IP address of pl.wikipedia.org?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Root DNS</td>
+<td style="text-align: left;">ISP DNS</td>
+<td style="text-align: left;">Nope, but ask 204.74.112.1 about org domain</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISP DNS</td>
+<td style="text-align: left;">org DNS</td>
+<td style="text-align: left;">Ay fam, got IP for pl.wikipedia.org?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">org DNS</td>
+<td style="text-align: left;">ISP DNS</td>
+<td style="text-align: left;">Nope, ask 216.21.226.87 about wikipedia.org domain</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISP DNS</td>
+<td style="text-align: left;">wikipedia.org DNS</td>
+<td style="text-align: left;">Hi, can I have IP address for pl.wikipedia.org?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">wikipedia.org DNS</td>
+<td style="text-align: left;">ISP DNS</td>
+<td style="text-align: left;">pl.wikipedia.org is 207.142.131.245</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ISP DNS</td>
+<td style="text-align: left;">Browser</td>
+<td style="text-align: left;">pl.wikipedia.org is 207.142.131.245</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Browser</td>
+<td style="text-align: left;">pl.wikipedia.org</td>
+<td style="text-align: left;">GET / HTTP/1.1</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>There are 13 root DNS servers because an UDP packet can fit only that much information</p>
+</aside>
+</section></section>
+<section><section id="wrapping-up" class="title-slide slide level1"><h1>Wrapping up</h1></section></section>
+<section><section id="questions" class="title-slide slide level1"><h1>Questions?</h1></section></section>
+<section><section id="further-reading" class="title-slide slide level1"><h1>Further reading</h1></section><section id="section" class="slide level2">
+<h2></h2>
+<ol>
+<li><a href="https://en.wikipedia.org/wiki/ARPANET">ARPANET</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Internet_Protocol">Internet Protocol</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">Transmission Control Protocol</a></li>
+<li><a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">User Datagram Protocol</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Domain_Name_System">Domain Name System</a></li>
+</ol>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+        // Push each slide change to the browser history
+        history: true,
+        // Enable slide navigation via mouse wheel
+        mouseWheel: true,
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
