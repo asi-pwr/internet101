@@ -9,7 +9,7 @@ Ruby script and powered by [reveal.js](https://revealjs.com/).
 
 ## GitHub pages
 
-Slides should be available at http://asi-pwr.github.io/http101/slides/
+Slides should be available at http://asi-pwr.github.io/internet101/slides/
 
 ## Usage instruction
 
